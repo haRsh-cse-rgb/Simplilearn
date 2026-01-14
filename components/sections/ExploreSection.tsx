@@ -5,6 +5,9 @@ import {
   ShieldCheck,
   FileText,
   Rocket,
+  Workflow,
+  GitBranch,
+  GitMerge
 } from 'lucide-react';
 
 const capabilities = [

@@ -31,7 +31,7 @@ export default function FooterSection() {
         </div>
 
         {/* Footer Bottom: Logo & Copyright */}
-        <div className="w-full flex flex-col md:flex-row items-center justify-between gap-8 pt-8 border-t border-white/20">
+        <div className="w-full flex flex-col md:flex-row items-center justify-between gap-8 pt-8">
           
           {/* Logo */}
           <div className="flex-shrink-0">

@@ -27,7 +27,7 @@ export default function RSVPForm() {
 
   return (
     <div className="w-full">
-      <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4 items-center w-full">
+      <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4 items-start md:items-center w-full">
         <div className="relative w-full">
           {/* Icon */}
           <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -49,7 +49,7 @@ export default function RSVPForm() {
         <button
           type="submit"
           disabled={isPending}
-          className="w-full md:w-auto px-8 py-3 text-white font-bold rounded-sm whitespace-nowrap shadow-md hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-auto px-8 py-3 text-white font-bold rounded-sm whitespace-nowrap shadow-md hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
           style={{
             background: 'linear-gradient(90deg, rgba(245, 171, 64, 0.9) 0%, #F5AB40 100%)'
           }}
