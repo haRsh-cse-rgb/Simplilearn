@@ -23,20 +23,20 @@ export default function SpeakersSection() {
     <section className="bg-gradient-to-b from-[#1D4DF4] to-[#112D8E] py-20">
       <div className="max-w-[1440px] mx-auto px-6">
         
-        {/* Section Title */}
+        
         <h2 className="text-3xl md:text-4xl font-bold text-[#ffb800] mb-12">
           Featured Speakers
         </h2>
 
-        {/* Speakers List */}
+        
         <div className="space-y-12">
           {speakers.map((speaker, index) => (
             <div
               key={index}
               className="flex flex-col md:flex-row gap-8 items-start"
             >
-              {/* Speaker Image */}
-              <div className="w-full md:w-56 flex-shrink-0">
+              
+              <div className="w-[60%] md:w-56 flex-shrink-0 mx-auto md:mx-0">
                 <div className="aspect-square relative rounded-lg overflow-hidden shadow-lg">
                   <Image
                     src={speaker.image}
@@ -47,12 +47,12 @@ export default function SpeakersSection() {
                 </div>
               </div>
 
-              {/* Speaker Info */}
+              
               <div className="flex-1 pt-2">
-                <h3 className="text-2xl font-bold text-[#00eaff] mb-4">
+                <h3 className="text-2xl font-bold text-[#00eaff] mb-4 text-center md:text-left">
                   {speaker.name}
                 </h3>
-                <p className="text-white text-base leading-relaxed opacity-95">
+                <p className="text-white text-base leading-relaxed opacity-95 text-center md:text-left">
                   {speaker.bio}
                 </p>
               </div>
@@ -60,9 +60,9 @@ export default function SpeakersSection() {
           ))}
         </div>
 
-        {/* Additional Perspectives Box */}
+        
         <div className="mt-20 relative rounded-lg overflow-hidden">
-          {/* Background Frame Image */}
+          
           <div className="absolute inset-0 z-0">
             <Image 
                 src="/frame.png" 
@@ -70,11 +70,11 @@ export default function SpeakersSection() {
                 fill 
                 className="object-cover"
             />
-             {/* Blue overlay to ensure text readability if the frame is too bright/busy */}
+             
             <div className="absolute inset-0 bg-[#2563eb]/30 mix-blend-multiply" />
           </div>
 
-          {/* Content */}
+          
           <div className="relative z-10 p-8 md:p-10">
             <h3 className="text-2xl font-bold text-[#00eaff] mb-3">
               Additional Expert Perspectives

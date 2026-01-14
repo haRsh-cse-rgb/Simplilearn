@@ -42,7 +42,7 @@ export async function submitRSVP(
   }
 
   try {
-    // URL encode the table name to handle spaces and special characters
+    
     const encodedTableName = encodeURIComponent(tableName);
     const apiUrl = `https://api.airtable.com/v0/${baseId}/${encodedTableName}`;
     
@@ -71,7 +71,7 @@ export async function submitRSVP(
           error: errorData,
         });
         
-        // Provide more specific error messages based on Airtable's response
+        
         if (errorData.error) {
           if (errorData.error.type === 'INVALID_PERMISSIONS_OR_MODEL_NOT_FOUND') {
             errorMessage = 'Invalid API key or base ID. Please check your configuration.';
@@ -85,7 +85,7 @@ export async function submitRSVP(
           }
         }
       } catch (parseError) {
-        // If we can't parse the error response, log the raw response
+        
         console.error('Airtable API error (unparseable):', {
           status: response.status,
           statusText: response.statusText,

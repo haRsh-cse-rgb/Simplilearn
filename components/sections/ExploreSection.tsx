@@ -67,7 +67,7 @@ export default function ExploreSection() {
                 key={index}
                 className="bg-white rounded-md p-6 shadow-sm border border-transparent hover:border-blue-200 transition-all flex items-start gap-4 min-h-[140px]"
               >
-                {/* Icon - Blue, no background box */}
+                
                 <div className="flex-shrink-0 pt-1">
                   <Icon className="w-8 h-8 text-blue-600" strokeWidth={1.5} />
                 </div>

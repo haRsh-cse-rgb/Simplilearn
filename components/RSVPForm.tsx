@@ -34,7 +34,7 @@ export default function RSVPForm() {
             <Mail className="h-5 w-5 text-gray-400" />
           </div>
           
-          {/* Input Field */}
+          
           <input
   type="email"
   name="email"
@@ -45,7 +45,7 @@ export default function RSVPForm() {
 />
         </div>
 
-        {/* Submit Button with Custom Gradient */}
+        
         <button
           type="submit"
           disabled={isPending}
@@ -58,7 +58,7 @@ export default function RSVPForm() {
         </button>
       </form>
 
-      {/* Success/Error Message */}
+      
       {state && (
         <div
           className={`mt-4 p-4 rounded-sm text-center ${

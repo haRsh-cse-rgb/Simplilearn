@@ -5,9 +5,9 @@ import RSVPForm from '@/components/RSVPForm';
 export default function HeroSection() {
   return (
     <section className="w-full flex flex-col">
-      {/* --- FULL HEIGHT HERO SECTION --- */}
+      
       <div className="relative w-full min-h-[600px] md:h-[693px] flex flex-col">
-        {/* Background Image */}
+        
         <div className="absolute inset-0 z-0 w-full">
           <Image
             src="/hero.png"
@@ -16,13 +16,13 @@ export default function HeroSection() {
             className="object-cover object-center"
             priority
           />
-          {/* Subtle overlay to match the deep blue/black aesthetic */}
+          
           <div className="absolute inset-0 bg-black/20" />
         </div>
 
-        {/* Hero Content Container */}
+        
         <div className="relative z-10 max-w-[1440px] mx-auto w-full px-4 md:px-6 h-full flex flex-col justify-center pb-8 md:pb-0">
-          {/* Simplilearn Logo - Positioned top left inside the container */}
+          
           <div className="absolute top-4 md:top-10 left-4 md:left-6">
             <Image 
               src="/logo.png" 
@@ -34,7 +34,7 @@ export default function HeroSection() {
           </div>
 
           <div className="mt-24 md:mt-20">
-            {/* Labels - Stacked on mobile, horizontal on desktop */}
+            
             <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-3 mb-6">
               <span className="inline-flex w-fit md:w-[174px] h-[40px] md:h-[56px] items-center justify-center bg-[#00ffff] rounded-[6px] px-4 md:px-0">
                 <span 
@@ -51,20 +51,20 @@ export default function HeroSection() {
               </span>
             </div>
 
-            {/* Headline */}
+           
             <h1 
               className="text-[#F5AB40] text-2xl md:text-[46px] leading-[1.1] mb-6 md:mb-10 font-black"
               style={{ WebkitTextStroke: '1px black' }}
             >
-              {/* First line: Weight 900 (font-black) */}
+              
               <span className="font-black">The Skills That Matter Next:</span>
               <br />
-              {/* Remaining lines: Weight 700 (font-bold) */}
+              
               <span className="font-bold">Preparing Your Workforce<br />
               & Leaders for the AI Era</span>
             </h1>
 
-            {/* Event Details */}
+            
             <div className="space-y-4 md:space-y-5">
               <div className="flex items-center gap-3 md:gap-4 text-white">
                 <Calendar className="w-5 h-5 md:w-7 md:h-7 text-white flex-shrink-0" />
@@ -81,17 +81,17 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* --- RSVP BAR SECTION --- */}
+      
       <div className="w-full bg-white md:bg-gradient-to-b md:from-[#f3f4f6] md:to-[#9ca3af] border-y border-gray-200 md:border-white/40 py-6 md:py-10 px-4 md:px-6">
         <div className="max-w-[1440px] mx-auto">
-          {/* md:pl-32 creates the large empty space on the left only for desktop */}
+          
           <div className="max-w-5xl">
             <RSVPForm />
           </div>
         </div>
       </div>
 
-      {/* --- MAIN CONTENT SECTION --- */}
+      
       <div className="bg-white py-3 md:py-20 px-4 md:px-6">
         <div className="max-w-[1440px] mx-auto space-y-2">
           <div className="space-y-6">
@@ -113,7 +113,7 @@ export default function HeroSection() {
             </h2>
           </div>
 
-          {/* Red Border Box as seen in your screenshot */}
+          
           <div className="rounded-sm">
             <p className="text-gray-900 text-xl">
               This invite-only roundtable gathers CHROs, CLOs, and enterprise workforce 
