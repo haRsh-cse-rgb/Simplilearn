@@ -1,3 +1,14 @@
+/**
+ * AgendaSection Component
+ * 
+ * Displays the event agenda with session details including titles, speakers,
+ * and descriptions. Features a responsive grid layout showcasing the event schedule.
+ */
+
+/**
+ * Array of agenda items for the event
+ * Each item contains a title, speaker name, and description
+ */
 const agendaItems = [
     {
       title: "Welcome & Opening",
@@ -26,28 +37,28 @@ const agendaItems = [
             Event Agenda
           </h2>
   
-          {/* Cards Grid */}
+          {/* Agenda Cards Grid - Responsive: 1 column on mobile, 3 columns on desktop */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {agendaItems.map((item, index) => (
               <div 
                 key={index} 
                 className="bg-white rounded-lg p-8 flex flex-col h-full shadow-sm"
               >
-                
+                {/* Session Title */}
                 <div className="min-h-[6rem] mb-8">
                   <h3 className="text-xl md:text-2xl font-bold text-[#2563eb] leading-tight whitespace-pre-line">
                     {item.title}
                   </h3>
                 </div>
   
-                
+                {/* Speaker Name */}
                 <div className="mb-4">
                   <p className="text-black font-bold text-base md:text-lg">
                     {item.speaker}
                   </p>
                 </div>
   
-                
+                {/* Session Description */}
                 <p className="text-black text-base leading-relaxed">
                   {item.description}
                 </p>

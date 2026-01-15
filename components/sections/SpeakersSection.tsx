@@ -1,5 +1,17 @@
+/**
+ * SpeakersSection Component
+ * 
+ * Displays featured speakers for the event with their images, names, and biographies.
+ * Includes a section for additional expert perspectives. Features a gradient
+ * background and responsive layout.
+ */
+
 import Image from 'next/image';
 
+/**
+ * Array of featured speakers
+ * Each speaker object contains name, image path, and biography
+ */
 const speakers = [
   {
     name: 'Rob Lauber',
@@ -23,19 +35,19 @@ export default function SpeakersSection() {
     <section className="bg-gradient-to-b from-[#1D4DF4] to-[#112D8E] py-20">
       <div className="max-w-[1440px] mx-auto px-6">
         
-        
+        {/* Section Title */}
         <h2 className="text-3xl md:text-4xl font-bold text-[#ffb800] mb-12">
           Featured Speakers
         </h2>
 
-        
+        {/* Speakers List - Vertical stack with responsive layout */}
         <div className="space-y-12">
           {speakers.map((speaker, index) => (
             <div
               key={index}
               className="flex flex-col md:flex-row gap-8 items-start"
             >
-              
+              {/* Speaker Image - Square aspect ratio, centered on mobile */}
               <div className="w-[60%] md:w-56 flex-shrink-0 mx-auto md:mx-0">
                 <div className="aspect-square relative rounded-lg overflow-hidden shadow-lg">
                   <Image
@@ -47,7 +59,7 @@ export default function SpeakersSection() {
                 </div>
               </div>
 
-              
+              {/* Speaker Information */}
               <div className="flex-1 pt-2">
                 <h3 className="text-2xl font-bold text-[#00eaff] mb-4 text-center md:text-left">
                   {speaker.name}
@@ -60,9 +72,9 @@ export default function SpeakersSection() {
           ))}
         </div>
 
-        
+        {/* Additional Experts Section - Background image with overlay */}
         <div className="mt-20 relative rounded-lg overflow-hidden">
-          
+          {/* Background Image Layer */}
           <div className="absolute inset-0 z-0">
             <Image 
                 src="/frame.png" 
@@ -70,11 +82,11 @@ export default function SpeakersSection() {
                 fill 
                 className="object-cover"
             />
-             
+            {/* Blue overlay for better text readability */}
             <div className="absolute inset-0 bg-[#2563eb]/30 mix-blend-multiply" />
           </div>
 
-          
+          {/* Content Layer */}
           <div className="relative z-10 p-8 md:p-10">
             <h3 className="text-2xl font-bold text-[#00eaff] mb-3">
               Additional Expert Perspectives

@@ -1,3 +1,11 @@
+/**
+ * ExploreSection Component
+ * 
+ * Displays a section showcasing the key topics and capabilities that will be
+ * explored during the event. Features a grid layout of capability cards with
+ * icons and descriptions highlighting critical enterprise shifts.
+ */
+
 import {
   History,
   Network,
@@ -10,6 +18,10 @@ import {
   GitMerge
 } from 'lucide-react';
 
+/**
+ * Array of capability items to display
+ * Each item contains an icon, title, and description
+ */
 const capabilities = [
   {
     icon: History,
@@ -48,7 +60,7 @@ export default function ExploreSection() {
     <section className="bg-[#eef6ff] py-20 px-6">
       <div className="max-w-[1440px] mx-auto">
         
-        {/* Heading Section */}
+        {/* Section Heading */}
         <div className="mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold text-[#f59e0b] mb-4">
             What We&apos;ll Explore
@@ -58,7 +70,7 @@ export default function ExploreSection() {
           </p>
         </div>
 
-        {/* Grid of Cards */}
+        {/* Capabilities Grid - Responsive layout: 1 column on mobile, 2 on tablet, 3 on desktop */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {capabilities.map((capability, index) => {
             const Icon = capability.icon;
@@ -67,7 +79,7 @@ export default function ExploreSection() {
                 key={index}
                 className="bg-white rounded-md p-6 shadow-sm border border-transparent hover:border-blue-200 transition-all flex items-start gap-4 min-h-[140px]"
               >
-                
+                {/* Icon Container */}
                 <div className="flex-shrink-0 pt-1">
                   <Icon className="w-8 h-8 text-blue-600" strokeWidth={1.5} />
                 </div>

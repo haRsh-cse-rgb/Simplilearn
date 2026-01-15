@@ -1,20 +1,43 @@
+/**
+ * RSVP Server Action
+ * 
+ * Server-side action for handling RSVP form submissions.
+ * Validates email input and submits data to Airtable API.
+ * Returns success/error status and user-friendly messages.
+ */
+
 'use server';
 
+/**
+ * Interface for RSVP form data structure
+ */
 interface RSVPFormData {
   email: string;
 }
 
+/**
+ * Interface for API response structure
+ */
 interface AirtableResponse {
   success: boolean;
   message: string;
 }
 
+/**
+ * Submits RSVP form data to Airtable
+ * 
+ * @param prevState - Previous form state (not used, required by useFormState)
+ * @param formData - Form data containing the email field
+ * @returns Promise resolving to AirtableResponse with success status and message
+ */
 export async function submitRSVP(
   prevState: AirtableResponse | null,
   formData: FormData
 ): Promise<AirtableResponse> {
+  // Extract email from form data
   const email = formData.get('email') as string;
 
+  // Validate email presence
   if (!email || !email.trim()) {
     return {
       success: false,
@@ -22,6 +45,7 @@ export async function submitRSVP(
     };
   }
 
+  // Validate email format using regex
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     return {
@@ -30,10 +54,12 @@ export async function submitRSVP(
     };
   }
 
+  // Retrieve Airtable configuration from environment variables
   const apiKey = process.env.AIRTABLE_API_KEY;
   const baseId = process.env.AIRTABLE_BASE_ID;
   const tableName = process.env.AIRTABLE_TABLE_NAME;
 
+  // Validate environment configuration
   if (!apiKey || !baseId || !tableName) {
     return {
       success: false,
@@ -42,10 +68,11 @@ export async function submitRSVP(
   }
 
   try {
-    
+    // Encode table name for URL safety
     const encodedTableName = encodeURIComponent(tableName);
     const apiUrl = `https://api.airtable.com/v0/${baseId}/${encodedTableName}`;
     
+    // Make POST request to Airtable API
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
@@ -59,11 +86,13 @@ export async function submitRSVP(
       }),
     });
 
+    // Handle API errors
     if (!response.ok) {
       let errorMessage = 'Failed to submit RSVP. Please try again.';
       const responseText = await response.text();
       
       try {
+        // Parse error response for detailed error messages
         const errorData = JSON.parse(responseText);
         console.error('Airtable API error:', {
           status: response.status,
@@ -71,7 +100,7 @@ export async function submitRSVP(
           error: errorData,
         });
         
-        
+        // Provide specific error messages based on error type
         if (errorData.error) {
           if (errorData.error.type === 'INVALID_PERMISSIONS_OR_MODEL_NOT_FOUND') {
             errorMessage = 'Invalid API key or base ID. Please check your configuration.';
@@ -85,7 +114,7 @@ export async function submitRSVP(
           }
         }
       } catch (parseError) {
-        
+        // Handle case where error response is not valid JSON
         console.error('Airtable API error (unparseable):', {
           status: response.status,
           statusText: response.statusText,
@@ -99,11 +128,13 @@ export async function submitRSVP(
       };
     }
 
+    // Success response
     return {
       success: true,
       message: 'Thank you for your RSVP! We look forward to seeing you.',
     };
   } catch (error) {
+    // Handle network or unexpected errors
     console.error('Error submitting to Airtable:', error);
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';
     return {
