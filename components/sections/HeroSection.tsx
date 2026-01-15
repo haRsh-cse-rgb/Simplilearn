@@ -54,7 +54,7 @@ export default function HeroSection() {
             <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-3 mb-6">
               <span className="inline-flex w-fit md:w-[174px] h-[40px] md:h-[56px] items-center justify-center bg-[#00ffff] rounded-[6px] px-4 md:px-0">
                 <span 
-                  className="text-[#25286A] text-base md:text-[25px] font-bold leading-none"
+                  className="text-[#25286A] text-lg md:text-[25px] font-bold leading-tight md:leading-none"
                   style={{ 
                     WebkitTextStroke: '1px black' 
                   }}
@@ -62,33 +62,50 @@ export default function HeroSection() {
                   Invite-Only
                 </span>
               </span>
-              <span className="text-[#00ffff] text-base md:text-[25px] leading-none md:ml-4">
-                An Executive Roundtable • Lunch
+              <span className="text-[#00ffff] text-lg md:text-[25px] leading-tight md:leading-none md:ml-4">
+                <span className="md:hidden">
+                  An Executive<br />
+                  Roundtable • Lunch
+                </span>
+                <span className="hidden md:inline">An Executive Roundtable • Lunch</span>
               </span>
             </div>
 
             {/* Main Event Title */}
             <h1 
-              className="text-[#F5AB40] text-2xl md:text-[46px] leading-[1.1] mb-6 md:mb-10 font-black"
+              className="text-[#F5AB40] text-3xl md:text-[46px] leading-[1.3] md:leading-[1.1] mb-6 md:mb-10 font-black"
               style={{ WebkitTextStroke: '1px black' }}
             >
-              {/* Primary Title */}
-              <span className="font-black">The Skills That Matter Next:</span>
-              <br />
-              {/* Subtitle */}
-              <span className="font-bold">Preparing Your Workforce<br />
-              & Leaders for the AI Era</span>
+              {/* Mobile View - Specific line breaks */}
+              <span className="md:hidden">
+                <span className="font-black">The Skills</span>
+                <br />
+                <span className="font-black">That Matter Next:</span>
+                <br />
+                <span className="font-bold">Preparing Your</span>
+                <br />
+                <span className="font-bold">Workforce & Leaders</span>
+                <br />
+                <span className="font-bold">for the AI Era</span>
+              </span>
+              {/* Desktop View - Original breaks */}
+              <span className="hidden md:inline">
+                <span className="font-black">The Skills That Matter Next:</span>
+                <br />
+                <span className="font-bold">Preparing Your Workforce<br />
+                & Leaders for the AI Era</span>
+              </span>
             </h1>
 
             {/* Event Details - Date and Location */}
             <div className="space-y-4 md:space-y-5">
               <div className="flex items-center gap-3 md:gap-4 text-white">
                 <Calendar className="w-5 h-5 md:w-7 md:h-7 text-white flex-shrink-0" />
-                <span className="text-base md:text-2xl font-bold">February 20, 2026</span>
+                <span className="text-lg md:text-2xl font-bold leading-relaxed">February 20, 2026</span>
               </div>
               <div className="flex items-center gap-3 md:gap-4 text-white">
                 <MapPin className="w-5 h-5 md:w-7 md:h-7 text-white flex-shrink-0" />
-                <span className="text-base md:text-2xl font-bold tracking-tight">
+                <span className="text-lg md:text-2xl font-bold tracking-tight leading-relaxed">
                   Chamberlain's Steak & Fish House, Dallas
                 </span>
               </div>
